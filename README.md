@@ -33,10 +33,15 @@ Questão 5 (Intermediário) - Diagnóstico de Doenças Cardíaca
  
 1. Importação das Bibliotecas
 O código é organizado em seções para importar diferentes tipos de ferramentas:
+
 •	Manipulação de Dados:
+
 o	import pandas as pd: A biblioteca principal para carregar e manipular os dados em tabelas (DataFrames).
+
 o	import numpy as np: Usada para operações matemáticas e numéricas.
+
 •	Visualização:
+
 o	import matplotlib.pyplot as plt e import seaborn as sns: Duas bibliotecas usadas para criar gráficos e visualizar os dados.
 •	Pré-processamento:
 o	from sklearn.model_selection import train_test_split: Função essencial para dividir os dados em conjuntos de treino e teste.
@@ -54,7 +59,7 @@ o	from sklearn.metrics import ...: Importa todas as funções necessárias para 
 o	import shap: Importa a biblioteca SHAP. Esta é uma ferramenta avançada que será usada para responder à segunda pergunta da atividade: "Quais variáveis mais impactaram na previsão?".
 •	Configurações Adicionais:
 o	sns.set_style(...): Define um estilo visual (whitegrid) para todos os gráficos do Seaborn.
-2. Carregamento dos Dados
+3. Carregamento dos Dados
 •	df = pd.read_csv('heart_desease_data.csv'): Este comando usa o Pandas para ler o arquivo heart_desease_data.csv e o armazena na variável df (DataFrame), que é a nossa tabela principal de trabalho.
 
 <img width="886" height="493" alt="image" src="https://github.com/user-attachments/assets/af3b4d66-8179-4aa2-9654-1faa8a85508c" />
