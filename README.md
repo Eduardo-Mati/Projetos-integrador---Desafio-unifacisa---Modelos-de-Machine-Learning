@@ -21,3 +21,5 @@ Abaixo você encontrará o mapeamento de cada notebook, os dados que ele utiliza
 1.  **Escolha a Questão:** Na tabela acima, clique no botão "Open In Colab" correspondente à questão que você deseja executar.
 2.  **Execute a Célula de Configuração:** Como antes, a **primeira célula** de cada notebook deve ser executada primeiro para clonar o repositório e instalar as bibliotecas. Isso garante que o notebook terá acesso aos arquivos de dataset corretos.
 3.  **Execute o Restante do Código:** Após a configuração, execute as outras células em sequência para ver a análise completa daquela questão.
+
+### Funcionamento do código por etapa
