@@ -804,5 +804,93 @@ o	Como? Passamos os geradores, as 25 épocas e, crucialmente, os class_weights q
 
 •	Por quê? O report nos deu métricas vitais como precisão (quantos 'Pneumonia' que previmos estavam certos) e recall (quantos 'Pneumonia' reais nós conseguimos encontrar). A Matriz de Confusão mostrou visualmente onde o modelo acertou e errou."
 
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Questão 10 (Previsão de Vendas)
+
+• Carga e Exploração 
+
+<img width="886" height="744" alt="image" src="https://github.com/user-attachments/assets/30b49606-b033-4919-9cd1-66667a5b80b5" />
+
+ 
+•	(Carga): Começamos carregando o store.csv com o Pandas. O df.head() e df.describe() nos mostraram que tínhamos uma mistura de dados numéricos (Gastos) e categóricos (Tipo_Loja)."
+
+
+
+
+
+
+
+
+
+• Feature Engineering 
+
+<img width="886" height="360" alt="image" src="https://github.com/user-attachments/assets/3129a588-354b-442f-a93e-cb0407a89918" />
+
+ 
+•	(Normalização): Vimos que 'Gastos_Publicidade' (milhares) e 'Numero_Funcionarios' (dezenas) tinham escalas muito diferentes.
+
+o	Por quê? Modelos de regressão dão mais importância a números maiores, o que distorce a análise.
+
+o	Como? Usamos MinMaxScaler para colocar todas as colunas numéricas na mesma escala (entre 0 e 1).
+
+<img width="886" height="422" alt="image" src="https://github.com/user-attachments/assets/a44c7f1f-cbda-4d64-ab88-9a94b01fcd98" />
+
+ 
+•	(Encoding): O modelo não entende o que 'Tipo_Loja_A' significa.
+
+o	Como? Usamos One-Hot Encoding (get_dummies) para transformar colunas de texto em colunas numéricas (0 ou 1)."
+
+
+
+• Regressão Linear e Árvore
+
+  <img width="886" height="698" alt="image" src="https://github.com/user-attachments/assets/76955241-4550-4047-9a31-7e6198bff92e" />
+
+  <img width="886" height="528" alt="image" src="https://github.com/user-attachments/assets/354fbc7c-185a-4efb-81db-7abd0b56ac07" />
+
+
+•	(Split e Regressão Linear): Primeiro, separamos os dados em Treino e Teste (70/30). Em seguida, treinamos nosso primeiro modelo, a LinearRegression.
+
+<img width="886" height="526" alt="image" src="https://github.com/user-attachments/assets/698322c6-b90a-40e6-ad03-4b38b874a65d" />
+
+ 
+•	(Avaliação): Avaliamos a Regressão Linear com MAE, RMSE e R². 
+
+<img width="886" height="524" alt="image" src="https://github.com/user-attachments/assets/851036ae-b0e7-43ea-9593-f4f0cc0b9176" />
+
+• treinamos o segundo modelo, o DecisionTreeRegressor."
+
+<img width="886" height="552" alt="image" src="https://github.com/user-attachments/assets/28146673-dea7-4115-897a-c8fa22ed52c3" />
+
+
+• Avaliação e XGBoost 
+
+<img width="886" height="511" alt="image" src="https://github.com/user-attachments/assets/f4886f01-9a3e-4f9d-b4ab-40ffec4a71e3" />
+
+ 
+•	(Avaliação): Avaliamos a Árvore de Decisão. 
+
+<img width="886" height="511" alt="image" src="https://github.com/user-attachments/assets/33fe28d6-f73f-4d9a-a891-f5748d7fe45e" />
+
+ 
+•	(Avaliação ): Por fim, treinamos e avaliamos o XGBRegressor, um modelo mais robusto. 
+
+----------
+
+• Aqui nós avaliamos as features de mais importância nos modelos
+
+<img width="886" height="644" alt="image" src="https://github.com/user-attachments/assets/7a40b9c6-734c-4d81-ab47-8b18dceaa2a0" />
+
+<img width="886" height="780" alt="image" src="https://github.com/user-attachments/assets/a0628063-fc7e-4ab7-999c-2359c34ec7e1" />
+
+<img width="886" height="796" alt="image" src="https://github.com/user-attachments/assets/96771a22-db0c-4242-a3f5-84b414c4c458" />
+
+
+
+
+ 
+ 
+ 
 
 
