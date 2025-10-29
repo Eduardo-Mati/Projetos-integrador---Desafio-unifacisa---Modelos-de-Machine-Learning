@@ -162,22 +162,39 @@ o	rf.fit(x_treino, y_treino): Este é o comando de treinamento. O modelo rf "apr
 
  
 Este bloco de código avalia o desempenho do modelo RandomForestClassifier que acabamos de treinar.
+
 Ele faz duas avaliações distintas:
+
 1.	Avaliação nos Dados de TREINO:
+
 o	y_pred_treino = rf.predict(x_treino): O modelo faz previsões sobre os próprios dados que usou para treinar.
+
 o	accuracy_score(y_treino, y_pred_treino): Compara as previsões com as respostas corretas.
+
 o	Resultado (1.0): A acurácia foi de 100%. Isso indica que o modelo "decorou" perfeitamente os dados de treino, um sinal clássico de overfitting. O que importa de verdade é o teste abaixo.
+
 2.	Avaliação nos Dados de TESTE (Validação):
+
 o	y_pred_val = rf.predict(x_val): O modelo faz previsões sobre os dados de teste (x_val), que ele nunca viu antes. Este é o teste real.
+
 o	confusion_matrix(...): Gera a Matriz de Confusão.
+
 	A saída [[41 9] [11 30]] significa (para as classes [1, 0]):
+
 	41 Verdadeiros Positivos: Acertou 41 pacientes que tinham doença.
+
 	9 Falsos Negativos: Errou 9 pacientes que tinham doença (disse que não tinham).
+
 	11 Falsos Positivos: Errou 11 pacientes que não tinham doença (disse que tinham).
+
 	30 Verdadeiros Negativos: Acertou 30 pacientes que não tinham doença.
+
 o	classification_report(...): Gera o relatório completo de métricas.
+
 	accuracy (Acurácia Total): 0.78 (O modelo acertou 78% de todas as previsões).
+
 	precision (classe 1): 0.79 (Quando o modelo disse "tem doença", ele estava certo 79% das vezes).
+
 	recall (classe 1): 0.82 (O modelo conseguiu identificar 82% de todos os pacientes que realmente tinham a doença).
 
 <img width="600" height="827" alt="image" src="https://github.com/user-attachments/assets/69ec9de8-acd4-40e9-b1b4-6e4115d3f734" />
