@@ -742,6 +742,67 @@ Após o fim do treinamento, este bloco calcula o desempenho final e "real" do mo
 
 •	Resultados: A saída imprime a "Perda (MSE)" e o "RMSE" finais. O RMSE é a métrica principal: ele nos diz, em média, o quão longe as previsões de notas do modelo (a saída reconstruída) ficaram das notas reais do conjunto de teste. Quanto menor o RMSE, melhor o modelo.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Questão 9 (Raio-X com CNNs)
+
+Configuração e Desbalanceamento 
+
+<img width="886" height="552" alt="image" src="https://github.com/user-attachments/assets/3182aee3-c411-421a-a4d5-45f3e44559f1" />
+
+ 
+•	(Configuração): O primeiro passo foi a organização. Importamos as bibliotecas (TensorFlow, Keras, Pandas) e definimos os caminhos para os dados de treino, teste e validação no Kaggle.
+
+<img width="643" height="630" alt="image" src="https://github.com/user-attachments/assets/36bcefae-523a-4646-826d-e5c4ada80504" />
+
+
+•	(Correção do Desbalanceamento): Logo de cara, identificamos um problema crítico nos dados: tínhamos muito mais imagens de 'Pneumonia' (3875) do que 'Normais' (1341).
+
+o	Por quê isso é um problema? Se ignorássemos isso, o modelo ficaria 'viciado' em chutar 'Pneumonia' e teria uma péssima performance em identificar pacientes saudáveis.o	Como resolvemos? Calculamos class_weights. Isso dá um 'peso' maior (1.94x) para cada amostra 'Normal', forçando o modelo a prestar mais atenção nela durante o treino."
+
+• Construção e Compilação da CNN 
+
+ <img width="642" height="545" alt="image" src="https://github.com/user-attachments/assets/611c2a61-405a-49e8-8907-fbe4792c2115" />
+ 
+• (Construindo o Modelo): Usamos uma Rede Neural Convolucional (CNN).
+
+o	Como? Empilhamos camadas Conv2D (para achar padrões) e MaxPooling2D (para reduzir a imagem e focar no que é importante).
+
+o	Por quê? Esse processo permite que a rede aprenda características, desde bordas simples até padrões complexos. Também usamos BatchNormalization para estabilizar o treino e Dropout para evitar que o modelo decore as imagens (overfitting).
+
+<img width="490" height="591" alt="image" src="https://github.com/user-attachments/assets/3a8f54a6-430f-4e07-bcfc-9387065c2f2d" />
+ 
+
+• (Compilando o Modelo): Com a arquitetura pronta, 'compilamos' o modelo.
+
+o	Como? Definimos o otimizador Adam (com uma taxa de aprendizado baixa para um ajuste fino), a função de perda binary_crossentropy (ideal para classificação sim/não) e a métrica accuracy."
+
+• Geradores de Dados e Treinamento
+
+<img width="638" height="605" alt="image" src="https://github.com/user-attachments/assets/ef7d1a72-e30b-4edd-bd72-b0cb4c6f3936" />
+
+ 
+•	(Preparando Geradores): Usamos o ImageDataGenerator.
+
+o	Por quê? Para aplicar Data Augmentation. O modelo poderia memorizar as poucas imagens de treino.
+
+o	Como? O gerador de treino aplica zoom, rotações e giros aleatórios em tempo real. Isso 'cria' novas imagens e ensina o modelo a generalizar. O gerador de teste não faz isso, apenas redimensiona as imagens.
+
+<img width="856" height="253" alt="image" src="https://github.com/user-attachments/assets/e0c46c2d-2d54-46a6-9a0b-17d8ad197ac0" />
+
+
+•	(Treinando o Modelo): Aqui, usamos o model.fit().
+
+o	Como? Passamos os geradores, as 25 épocas e, crucialmente, os class_weights que calculamos lá no Bloco 2. Agora o treino é justo."
+
+• Avaliação do Modelo 
+
+<img width="886" height="702" alt="image" src="https://github.com/user-attachments/assets/1b329f89-7542-4a7e-a773-125fd18c76fb" />
+
+ 
+•	Como? Usamos o classification_report e a confusion_matrix nos dados de teste (que o modelo nunca viu).
+
+•	Por quê? O report nos deu métricas vitais como precisão (quantos 'Pneumonia' que previmos estavam certos) e recall (quantos 'Pneumonia' reais nós conseguimos encontrar). A Matriz de Confusão mostrou visualmente onde o modelo acertou e errou."
 
 
 
