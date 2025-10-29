@@ -318,5 +318,63 @@ A tabela mostra o "Peso" (o quanto a acurácia do modelo caiu quando a feature f
 
 •	Interessante notar que chol (colesterol) teve uma importância negativa (-0.0223), o que sugere que essa feature pode ter mais confundido o SVM do que ajudado.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Questão 6 (Avançado) – Previsão do Valor de Imóveis
+
+Trabalho desenvolvido no Google Colab utilizando técnicas de Machine Learning para prever o valor médio de imóveis na Califórnia, com base no dataset California Housing.
+
+Bibliotecas usadas
+
+Antes de executar o código, foram utilizadas as seguintes bibliotecas (algumas precisam ser instaladas):
+
+- pandas: manipulação e análise de dados (DataFrame).
+- numpy: operações numéricas e arrays.
+- matplotlib.pyplot: criação de gráficos.
+- seaborn: aprimora visualizações estatísticas (estilos e gráficos).
+- scikit-learn (sklearn): carregamento do dataset e ferramentas de pré-processamento, divisão de dados e modelos (fetch_california_housing, train_test_split, StandardScaler, LinearRegression, métricas como mean_squared_error e r2_score).
+- xgboost: algoritmo de boosting baseado em árvores (XGBRegressor).
+- tensorflow / keras: construção e treinamento de redes neurais (Sequential, Dense).
+
+Comandos usados para instalar (exemplo):
+`!pip install pandas numpy scikit-learn matplotlib seaborn xgboost tensorflow`
+
+Essas bibliotecas permitem carregar, preparar, visualizar os dados e aplicar diferentes modelos de regressão.
+ 
+Aqui iniciamos o projeto importando o dataset California Housing, que contém informações sobre a renda, localização e características das casas da Califórnia.
+ 
+Nesta parte, são instaladas e importadas as bibliotecas necessárias, como Pandas, NumPy, Seaborn, Matplotlib, Scikit-Learn, XGBoost e TensorFlow.
+ 
+Aqui configuramos o estilo visual dos gráficos com o Seaborn e o Matplotlib, deixando os resultados mais claros e bonitos.
+ 
+Nesta célula, ocorre o pré-processamento dos dados: normalização e separação entre treino e teste para preparar o dataset.
+ 
+Aqui visualizamos as primeiras linhas do dataset e analisamos o significado de cada coluna, como renda mediana, idade média das casas e número médio de cômodos.
+ 
+Nesta parte, o código faz a normalização com o StandardScaler, deixando os dados padronizados para os modelos.
+ 
+A seguir, é criada uma matriz de correlação, que mostra quais variáveis têm mais influência sobre o valor das casas.
+ 
+Aqui os dados são divididos entre treino (80%) e teste (20%) para avaliar o desempenho dos modelos.
+ 
+O primeiro modelo utilizado é a Regressão Linear, que apresentou um R² de aproximadamente 0.57, explicando parte da variação dos preços.
+ 
+Depois testamos o XGBoost e uma Rede Neural Artificial, obtendo melhor desempenho — especialmente o XGBoost, com um R² de 0.83.
+ 
+Aqui está a avaliação final da Rede Neural após treinamento: o RMSE final foi de aproximadamente 0.439 e o R² atingiu cerca de 0.80, mostrando bom desempenho da rede.
+ 
+Pergunta/Resposta: Qual modelo teve menor erro de previsão? Como otimizar ainda mais o desempenho?
+
+- O modelo com menor erro de previsão foi o XGBoost, com RMSE em torno de 0.40 e R² de aproximadamente 0.83.
+
+- Para melhorar ainda mais o desempenho, algumas ações possíveis são:
+  • Fazer ajuste de hiperparâmetros (grid search ou randomized search) em modelos como XGBoost e na Rede Neural.
+  • Realizar engenharia de features: criar novas variáveis relevantes, tratar outliers e explorar interações entre variáveis.
+  • Coletar ou incluir mais dados/contexto (por exemplo, informações sobre zoneamento, proximidade a serviços, etc.).
+  • Usar validação cruzada (cross-validation) para ter estimativas mais robustas do desempenho.
+  • Experimentar ensembles de modelos e técnicas de regularização para reduzir overfitting.
+
+
+
 
 
