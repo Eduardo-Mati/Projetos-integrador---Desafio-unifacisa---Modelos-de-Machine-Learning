@@ -340,40 +340,407 @@ Comandos usados para instalar (exemplo):
 `!pip install pandas numpy scikit-learn matplotlib seaborn xgboost tensorflow`
 
 Essas bibliotecas permitem carregar, preparar, visualizar os dados e aplicar diferentes modelos de regressão.
+
+<img width="900" height="468" alt="image" src="https://github.com/user-attachments/assets/a72a9225-1889-4519-8754-fe99a2cd3c46" />
+
  
 Aqui iniciamos o projeto importando o dataset California Housing, que contém informações sobre a renda, localização e características das casas da Califórnia.
+
+<img width="900" height="591" alt="image" src="https://github.com/user-attachments/assets/9ae7ce7e-6f83-4ec6-8e5e-9a1a6e355aca" />
+
  
 Nesta parte, são instaladas e importadas as bibliotecas necessárias, como Pandas, NumPy, Seaborn, Matplotlib, Scikit-Learn, XGBoost e TensorFlow.
+
+<img width="900" height="463" alt="image" src="https://github.com/user-attachments/assets/a1bf6511-3dc1-4f5d-8066-30baefeecb23" />
+
  
 Aqui configuramos o estilo visual dos gráficos com o Seaborn e o Matplotlib, deixando os resultados mais claros e bonitos.
+
+<img width="900" height="417" alt="image" src="https://github.com/user-attachments/assets/056fc582-1fee-4b41-9433-b9dc0a7f6783" />
+
  
 Nesta célula, ocorre o pré-processamento dos dados: normalização e separação entre treino e teste para preparar o dataset.
+
+
+<img width="900" height="422" alt="image" src="https://github.com/user-attachments/assets/49163ab5-43b7-4651-a650-c5dcbb7068d2" />
+
  
 Aqui visualizamos as primeiras linhas do dataset e analisamos o significado de cada coluna, como renda mediana, idade média das casas e número médio de cômodos.
+
+
+<img width="900" height="186" alt="image" src="https://github.com/user-attachments/assets/ca10c488-47dc-49c8-b353-3e10f44a0485" />
+
  
 Nesta parte, o código faz a normalização com o StandardScaler, deixando os dados padronizados para os modelos.
+
+
+<img width="900" height="349" alt="image" src="https://github.com/user-attachments/assets/c7fdbcb7-8430-4f28-8bfb-e929679468aa" />
+
  
 A seguir, é criada uma matriz de correlação, que mostra quais variáveis têm mais influência sobre o valor das casas.
+
+
+<img width="900" height="205" alt="image" src="https://github.com/user-attachments/assets/06c2102c-ed30-48b8-bba6-1bdf9e5372ef" />
+
  
 Aqui os dados são divididos entre treino (80%) e teste (20%) para avaliar o desempenho dos modelos.
+
+
+<img width="900" height="384" alt="image" src="https://github.com/user-attachments/assets/a22eb35d-a126-45ef-8aed-95abf36d7c62" />
+
  
 O primeiro modelo utilizado é a Regressão Linear, que apresentou um R² de aproximadamente 0.57, explicando parte da variação dos preços.
+
+
+<img width="900" height="342" alt="image" src="https://github.com/user-attachments/assets/6c9d3033-240b-402a-a688-1301aff48f16" />
+
  
 Depois testamos o XGBoost e uma Rede Neural Artificial, obtendo melhor desempenho — especialmente o XGBoost, com um R² de 0.83.
+
+
+<img width="900" height="267" alt="image" src="https://github.com/user-attachments/assets/7394a460-0da0-4460-995c-18ed7c321c04" />
+
  
 Aqui está a avaliação final da Rede Neural após treinamento: o RMSE final foi de aproximadamente 0.439 e o R² atingiu cerca de 0.80, mostrando bom desempenho da rede.
+
+
+<img width="900" height="266" alt="image" src="https://github.com/user-attachments/assets/a786ac46-9d6a-466e-a5a2-22cd1034ffb6" />
+
  
 Pergunta/Resposta: Qual modelo teve menor erro de previsão? Como otimizar ainda mais o desempenho?
 
 - O modelo com menor erro de previsão foi o XGBoost, com RMSE em torno de 0.40 e R² de aproximadamente 0.83.
 
 - Para melhorar ainda mais o desempenho, algumas ações possíveis são:
+
   • Fazer ajuste de hiperparâmetros (grid search ou randomized search) em modelos como XGBoost e na Rede Neural.
+
   • Realizar engenharia de features: criar novas variáveis relevantes, tratar outliers e explorar interações entre variáveis.
+
   • Coletar ou incluir mais dados/contexto (por exemplo, informações sobre zoneamento, proximidade a serviços, etc.).
+
   • Usar validação cruzada (cross-validation) para ter estimativas mais robustas do desempenho.
+
   • Experimentar ensembles de modelos e técnicas de regularização para reduzir overfitting.
 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Questão 7 (Intermediário) - Recomendação de Produtos em um Supermercado
+
+Bibliotecas Utilizadas
+- pandas
+- mlxtend.frequent_patterns
+- numpy
+- matplotlib.pyplot
+- seaborn
+- warnings
+
+
+<img width="900" height="332" alt="image" src="https://github.com/user-attachments/assets/fa58f6c2-0c43-40c4-9190-3f1a0dd95df6" />
+
+Neste primeiro trecho, importamos as bibliotecas necessárias para análise de dados, visualização e criação das regras de associação. O 'pandas' gerencia os dados em formato de tabela; 'mlxtend' traz o algoritmo Apriori; 'numpy' oferece suporte matemático; 'matplotlib' e 'seaborn' ajudam na visualização; e 'warnings' é usado para suprimir avisos desnecessários.
+
+
+<img width="900" height="306" alt="image" src="https://github.com/user-attachments/assets/7c99fd0d-2a01-4e92-a4a6-55f5c20e72bb" />
+
+
+Aqui, o código lê o arquivo CSV com os dados das compras no supermercado, criando um DataFrame. A função df.head(10) mostra as primeiras linhas para termos uma visão inicial dos dados — contendo o número do cliente, a data e o item comprado.
+
+<img width="900" height="348" alt="image" src="https://github.com/user-attachments/assets/7c299ad8-e3ac-425f-ba06-a7dfd9ee2783" />
+
+ 
+Nesta etapa, removemos a coluna 'Date', pois a data da compra não é relevante para descobrir relações entre produtos. A função df.drop elimina essa coluna do DataFrame.
+
+<img width="900" height="295" alt="image" src="https://github.com/user-attachments/assets/7e03adf6-3536-4ce5-bcdc-159df5526dcd" />
+
+ 
+Agora, renomeamos as colunas para facilitar o entendimento: 'Member_number' vira 'ID' e 'itemDescription' vira 'Itens'. Isso deixa o dataset mais limpo e intuitivo para análise.
+
+<img width="900" height="313" alt="image" src="https://github.com/user-attachments/assets/35579733-20f0-4c79-8430-ab99fa1ee4ac" />
+
+ 
+Em seguida, agrupamos os dados por cliente (ID) e unimos todos os itens comprados em uma única linha, separados por vírgula. Assim, temos uma visão do conjunto de produtos adquiridos por cada pessoa, o que é essencial para o algoritmo Apriori identificar padrões de compra.
+
+<img width="900" height="316" alt="image" src="https://github.com/user-attachments/assets/93a25229-96b6-45f1-b6e4-48b89a98abee" />
+
+ 
+Aqui aplicamos o algoritmo Apriori com suporte mínimo de 2%. Isso significa que só consideramos combinações de produtos que aparecem em pelo menos 2% das transações. Em seguida, geramos as regras de associação com base no 'lift' e ordenamos as regras mais fortes primeiro.
+
+<img width="900" height="245" alt="image" src="https://github.com/user-attachments/assets/d52c99b6-8872-4c4f-81d4-fe22d366ef36" />
+
+ 
+Por fim, temos a análise dos resultados. A tabela mostra as combinações de produtos (antecedentes e consequentes) e as métricas que indicam a força da relação entre eles, como suporte, confiança e lift. Isso nos permite entender quais produtos tendem a ser comprados juntos.
+
+<img width="900" height="200" alt="image" src="https://github.com/user-attachments/assets/203b2661-8f6e-435e-a99f-1d6f340fdf8b" />
+
+ 
+Na conclusão textual, respondemos à pergunta sobre as regras mais relevantes e como aplicá-las no mercado. A ideia é que os produtos mais frequentemente comprados juntos sejam colocados próximos nas prateleiras, estimulando vendas cruzadas e aumentando o faturamento.
+
+Conclusão
+Neste projeto, aprendemos a aplicar o algoritmo Apriori para identificar padrões de compra em um supermercado. Com isso, é possível recomendar produtos e planejar estratégias de vendas baseadas em dados. O uso de regras de associação mostrou como a análise de dados pode gerar insights práticos para o comércio.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Questão 8 (Avançado) - Recomendação de Filmes com Filtragem Colaborativa
+
+
+<img width="886" height="360" alt="image" src="https://github.com/user-attachments/assets/fc9890ae-33c7-49a7-9f76-a6ae88406ae0" />
+
+ 
+Este bloco de código é a Etapa 0: Configuração do Ambiente e Instalação de Bibliotecas.
+
+Aqui, o código usa o comando !pip install para garantir que todas as ferramentas necessárias para o projeto estejam instaladas no ambiente.
+
+•	!pip install mlxtend: Instala a biblioteca mlxtend, que é muito usada para Regras de Associação (como o algoritmo Apriori, que descobre quais itens são frequentemente comprados juntos).
+
+•	!pip install tensorflow, !pip install keras, !pip install tensorflow-recommenders: Instalam o TensorFlow e o Keras, que são as principais bibliotecas para Deep Learning, e o tensorflow-recommenders, um pacote específico para construir sistemas de recomendação avançados.
+
+•	import pandas as pd, import numpy as np: Importa as duas bibliotecas mais fundamentais para manipulação e análise de dados no Python.
+
+
+<img width="532" height="492" alt="image" src="https://github.com/user-attachments/assets/8cc8a683-9462-477a-bda5-20212a8e5a9c" />
+
+ 
+Neste bloco, o código está carregando o dataset principal para o sistema de recomendação.
+
+•	O que faz: O comando pd.read_csv('avaliacoes_filmes.csv') lê o arquivo CSV que contém o histórico de avaliações dos usuários e o armazena em uma estrutura de tabela chamada DataFrame, que é nomeada df.
+
+•	Por que: Esta é a etapa inicial e essencial. Precisamos carregar os dados na memória para poder analisá-los e usá-los para treinar o modelo.
+
+•	A Saída: df.head(10) é usado para "espiar" as 10 primeiras linhas do arquivo. Isso confirma que os dados foram carregados corretamente e nos permite ver a estrutura: temos um user_id (o usuário), um movie_id (o filme), um rating (a nota que o usuário deu) e um timestamp (quando a avaliação foi feita).
+
+
+<img width="759" height="1459" alt="image" src="https://github.com/user-attachments/assets/13714db2-02bf-475f-b8cc-755a94034c0f" />
+
+
+ 
+Este bloco de código é o núcleo da Filtragem Colaborativa Clássica. Ele constrói, treina e avalia dois modelos diferentes para comparar suas performances:
+
+1.	Filtragem Colaborativa Baseada no Usuário (User-Based)
+
+2.	Filtragem Colaborativa Baseada no Item (Item-Based)
+
+Tudo isso é feito usando a biblioteca surprise, que é especializada nesse tipo de sistema de recomendação.
+________________________________________
+
+Análise Detalhada do Bloco:
+
+1. Preparação dos Dados para a Biblioteca surprise
+
+•	O que faz: Antes de usar o surprise, o DataFrame do Pandas precisa ser convertido.
+
+o	Reader(rating_scale=(1, 5)): Primeiro, é criado um Reader para informar à biblioteca que as notas (ratings) no dataset variam de 1 a 5.
+
+o	Dataset.load_from_df(...): Carrega os dados do DataFrame (df), especificando quais colunas são o user_id, movie_id e rating.
+
+o	train_test_split(...): Divide o conjunto de dados em 75% para treino e 25% para teste (test_size=.25).
+
+•	Por que: O surprise tem seu próprio formato de dados otimizado. A divisão treino/teste é fundamental para avaliar se o modelo é bom em prever notas que ele nunca viu antes.
+
+2. Modelo 1: Filtragem Colaborativa Baseada no Usuário (User-Based)
+
+•	O que faz: Constrói e treina o primeiro modelo.
+
+o	sim_options_user = ...: Define as opções de similaridade.
+
+	'name': 'cosine': Informa que usaremos a "Similaridade de Cossenos" para medir o quão parecidos dois usuários são.
+
+	'user_based': True: Este é o comando principal. Ele diz ao modelo: "Encontre usuários com gostos similares (que deram notas parecidas para os mesmos filmes) e recomende filmes que esses usuários similares gostaram."
+
+o	model_user = KNNBasic(...): Cria o modelo (KNNBasic) com essas opções.
+
+o	model_user.fit(trainset): Treina o modelo usando os dados de treino.
+
+o	accuracy.rmse(predictions_user): Testa o modelo nos dados de teste e calcula as métricas de erro RMSE (Raiz do Erro Quadrático Médio) e MAE (Erro Médio Absoluto).
+
+•	Por que: O objetivo é testar a lógica de "me diga o que pessoas parecidas comigo gostaram".
+
+3. Modelo 2: Filtragem Colaborativa Baseada no Item (Item-Based)
+
+•	O que faz: Constrói e treina o segundo modelo, de forma muito parecida.
+
+o	sim_options_item = ...: Define as opções de similaridade.
+
+	'user_based': False: Esta é a mudança crucial. Agora, o modelo não busca usuários parecidos. Ele busca itens (filmes) parecidos.
+
+o	A lógica agora é: "Se o usuário gostou do filme X, encontre outros filmes (Y e Z) que são 'similares' ao filme X (porque receberam notas parecidas dos mesmos usuários) e recomende-os."
+
+o	O restante (treino e teste) é idêntico.
+
+•	Por que: O objetivo é testar a lógica de "se você gostou disso, talvez goste daquilo".
+
+A Saída (Resultados)
+
+•	O que mostra: A saída imprime o RMSE e o MAE para ambos os modelos.
+
+•	Por que: Essas métricas medem o erro médio das previsões. Quanto menor o número, melhor o modelo.
+
+o	No seu resultado, o modelo Item-Based (RMSE: 1.0876, MAE: 1.0250) teve um erro menor que o User-Based (RMSE: 1.7150, MAE: 1.3333).
+
+o	Conclusão: Para este dataset específico, a abordagem de "recomendar filmes similares" (Item-Based) foi mais precisa do que a de "recomendar o que usuários similares gostam" (User-Based).
+
+
+<img width="886" height="499" alt="image" src="https://github.com/user-attachments/assets/befcf550-3275-4c01-ab40-f946cea737d4" />
+
+
+este bloco, o código muda de abordagem. Ele sai da biblioteca surprise e começa a preparar os dados para um modelo de Deep Learning (Rede Neural), que é uma forma mais moderna de sistema de recomendação.
+
+Esta etapa é toda sobre Pré-processamento e Transformação de Dados.
+
+1. Divisão dos Dados (Treino/Teste)
+
+•	O que faz: O train_test_split é usado para dividir o DataFrame original (df) em dois conjuntos: train_data (80% dos dados) e test_data (20% dos dados).
+
+•	Por que: Esta é uma regra fundamental. O modelo só pode "aprender" com os dados de treino. Os dados de teste são guardados "em segredo" e só são usados no final, para verificar se o modelo realmente aprendeu a generalizar ou se apenas "decorou" as respostas do treino.
+
+2. Criação da Matriz Usuário-Item
+
+•	O que faz: O comando .pivot_table() transforma a lista de avaliações em uma matriz (uma grande tabela).
+
+o	As linhas se tornam os user_id.
+
+o	As colunas se tornam os movie_id.
+
+o	Os valores dentro da tabela são os rating (notas).
+
+•	Por que: Redes neurais e outros algoritmos de "Matrix Factorization" (Fatoração Matricial) não trabalham com listas, eles precisam dessa matriz "usuário-item" como entrada. O .fillna(0) é usado para preencher com 0 os filmes que um usuário ainda não avaliou.
+
+3. Normalização dos Dados
+
+•	O que faz: O MinMaxScaler é aplicado na matriz de treino. Ele pega todos os valores (que vão de 0 a 5) e os "comprime" para que fiquem na escala de 0 a 1.
+
+•	Por que: Redes Neurais treinam de forma muito mais rápida, estável e eficiente quando todos os números de entrada estão em uma escala pequena e consistente, como 0 a 1.
+
+A Saída
+
+•	O que mostra: Dimensões da matriz de treino: (5, 4)
+
+•	Por que: Confirma que, após todo o processamento, a matriz de treino (que será usada para alimentar a rede neural) tem 5 usuários (linhas) e 4 filmes (colunas).
+
+
+<img width="886" height="1103" alt="image" src="https://github.com/user-attachments/assets/21588552-8256-46af-9421-3daf1293ca20" />
+
+ 
+
+Este bloco de código é onde o modelo de Deep Learning (Rede Neural) é de fato construído. O modelo usado aqui é um tipo especial chamado Autoencoder.
+
+Um Autoencoder tem duas partes:
+
+1.	Encoder (Codificador): Pega os dados de entrada (a linha de avaliações do usuário) e os comprime em uma representação muito pequena, chamada de "espaço latente" ou "gargalo".
+
+2.	Decoder (Decodificador): Pega essa representação comprimida ("gargalo") e tenta reconstruir a entrada original a partir dela.
+
+Análise Detalhada do Bloco:
+
+1. Arquitetura da Rede
+
+•	n_movies = ...shape[1]: Primeiro, o código verifica quantas colunas (filmes) a matriz de treino tem. A rede neural precisa saber disso.
+
+•	input_layer = Input(...): Define a camada de entrada. Ela tem o mesmo número de neurônios que o número de filmes (neste caso, 4, como visto no passo anterior).
+
+•	Encoder (O Caminho de Compressão):
+
+o	encoded = Dense(128, ...)
+
+o	encoded = Dense(64, ...)
+
+o	latent_view = Dense(32, ...)
+
+o	O que faz: O input_layer com 4 neurônios é progressivamente "espremido" em camadas com 128, 64 e, finalmente, 32 neurônios. Essa camada de 32 neurônios é o "gargalo" (latent view). Ela é forçada a aprender uma representação super comprimida, mas muito rica, dos gostos daquele usuário.
+
+•	Decoder (O Caminho de Reconstrução):
+
+o	decoded = Dense(64, ...)
+
+o	decoded = Dense(128, ...)
+
+o	output_layer = Dense(n_movies, activation='sigmoid')
+
+o	O que faz: O código pega o "gargalo" de 32 neurônios e faz o caminho inverso, "descomprimindo" de volta para 64, 128 e, finalmente, para o número original de filmes (4).
+
+o	Ponto-chave (activation='sigmoid'): A última camada usa a ativação sigmoid. Isso é feito de propósito, porque sigmoid sempre retorna um valor entre 0 e 1. Como normalizamos nossos dados para ficarem entre 0 e 1 no passo anterior, isso ajuda o modelo a gerar previsões na mesma escala.
+
+2. Compilação do Modelo
+
+•	O que faz: O autoencoder.compile(...) prepara o modelo para o treino.
+
+•	Por que:
+
+o	optimizer=Adam(...): Define o otimizador Adam, que é um algoritmo eficiente para ajustar os pesos da rede.
+
+o	loss='mean_squared_error': Esta é a parte mais importante. O "objetivo" do modelo (loss) é o Erro Quadrático Médio. O modelo tentará minimizar a diferença entre a input_layer (as notas reais) e a output_layer (as notas reconstruídas). Basicamente, ele será treinado para ficar muito bom em "adivinhar" as notas que o usuário deu.
+
+A Saída (Model Summary)
+
+•	O que mostra: O .summary() imprime um resumo da arquitetura, mostrando cada camada, seu formato de saída e o número de parâmetros (pesos) que ela precisa aprender.
+
+•	Total params: 21,924: Informa que este modelo tem 21.924 "botões" (parâmetros) que serão ajustados durante o treinamento para minimizar o erro.
+
+
+ <img width="719" height="1459" alt="image" src="https://github.com/user-attachments/assets/9b0f1d92-4e1a-4cb3-86ad-d4520033c940" />
+
+Este bloco de código é uma versão completa e corrigida dos passos anteriores, juntando a preparação dos dados, a construção do modelo, o treinamento e a avaliação (as partes que faltavam).
+
+________________________________________
+
+Análise Detalhada do Bloco:
+
+1. Divisão e Preparação dos Dados (Revisão Correta)
+
+Este trecho de código refaz a preparação dos dados de forma mais robusta para evitar "vazamento de dados" (data leakage).
+
+•	train_test_split (Feito Primeiro): O DataFrame original é dividido em treino e teste antes de qualquer outra transformação. Isso garante que o modelo não tenha nenhuma informação sobre o conjunto de teste durante o seu treinamento.
+
+•	Criação das Matrizes: As matrizes usuário-item de treino e teste são criadas separadamente a partir dos dados já divididos.
+
+•	Alinhamento (.reindex): Um passo crucial é adicionado. O .reindex força a matriz de teste (user_item_matrix_test_raw) a ter exatamente as mesmas colunas (filmes) e linhas (usuários) que a matriz de treino. Isso evita erros se, por acaso, um filme ou usuário só existir no conjunto de teste.
+
+•	Normalização (MinMaxScaler Corrigida):
+
+o	scaler.fit_transform(user_item_matrix_train): O MinMaxScaler é treinado (fit) e aplicado (transform) apenas nos dados de treino. Ele "aprende" qual é o valor mínimo e máximo (0 e 5) com os dados de treino.
+
+o	scaler.transform(user_item_matrix_test): O scaler (já treinado) é apenas aplicado (transform) nos dados de teste. Isso garante que os dados de teste sejam normalizados usando a mesma regra dos dados de treino, sem "contaminá-los".
+
+2. Definição do Modelo Autoencoder
+
+Esta é a arquitetura da rede neural, similar à do passo anterior.
+
+•	Arquitetura: O modelo é um Autoencoder. Ele possui:
+
+o	Encoder (Codificador): Comprime a entrada (número de filmes) em camadas menores (Dense(64)) até um "gargalo" (latent_view = Dense(32)). Esta camada de 32 neurônios é uma representação compacta dos gostos do usuário.
+
+o	Decoder (Decodificador): Pega o "gargalo" (latent_view) e tenta reconstruir a entrada original, "descomprimindo-a" de volta (Dense(64) e Dense(n_movies)).
+
+•	Compilação: O modelo é compilado com:
+
+o	loss='mean_squared_error': A função de perda que o modelo tentará minimizar (o erro entre a entrada e a saída reconstruída).
+
+o	metrics=['rmse']: Além da perda, pedimos para ele monitorar o RMSE (RootMeanSquaredError), que é uma métrica mais fácil de interpretar por estar na mesma unidade das notas.
+
+3. Treinamento do Modelo
+
+Esta é a etapa onde o modelo "aprende".
+
+•	autoencoder.fit(...): Inicia o treinamento.
+
+o	x=X_train_scaled: Os dados de entrada.
+
+o	y=X_train_scaled: Os dados de "saída esperada". No Autoencoder, a entrada e a saída são as mesmas. O objetivo do modelo é aprender a recriar o seu próprio input da forma mais fiel possível.
+
+o	epochs=100: O modelo verá o dataset de treino 100 vezes.
+
+o	batch_size=32: O modelo treina em "lotes" de 32 usuários por vez.
+
+o	validation_data=(X_test_scaled, X_test_scaled): Ao final de cada época, o modelo tentará prever as notas do conjunto de teste (que ele nunca usou para treinar) e reportará o erro. Isso é vital para monitorar se o modelo está generalizando bem ou apenas "decorando" os dados de treino (overfitting).
+
+4. Avaliação do Desempenho
+
+Após o fim do treinamento, este bloco calcula o desempenho final e "real" do modelo.
+
+•	autoencoder.evaluate(X_test_scaled, X_test_scaled): Roda o modelo uma última vez sobre o conjunto de teste.
+
+•	Resultados: A saída imprime a "Perda (MSE)" e o "RMSE" finais. O RMSE é a métrica principal: ele nos diz, em média, o quão longe as previsões de notas do modelo (a saída reconstruída) ficaram das notas reais do conjunto de teste. Quanto menor o RMSE, melhor o modelo.
 
 
 
