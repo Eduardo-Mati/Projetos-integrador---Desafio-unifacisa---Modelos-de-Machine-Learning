@@ -1,4 +1,4 @@
-<img width="1768" height="716" alt="image" src="https://github.com/user-attachments/assets/a7241bea-dd53-466e-967f-1a97fbb3206e" />## 🚀 Como Executar as Questões no Google Colab
+## 🚀 Como Executar as Questões no Google Colab
 
 O projeto está dividido em múltiplos notebooks, cada um correspondendo a uma questão ou etapa da análise. Todos foram preparados para rodar diretamente no Google Colab.
 
